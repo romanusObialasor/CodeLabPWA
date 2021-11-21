@@ -29,8 +29,6 @@ const Header = ({ bclr }) => {
   const onToggle = () => {
     setState(!state);
   };
-  console.log(bclr);
-
   return (
     <>
       <GlobalStyled />
