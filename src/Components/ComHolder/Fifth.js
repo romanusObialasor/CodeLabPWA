@@ -69,7 +69,6 @@ const Wrapper = styled.div`
 const Top = styled.div`
   max-width: 800px;
   text-align: center;
-  color: #091e42;
   display: flex;
   flex-direction: column;
   align-items: center;

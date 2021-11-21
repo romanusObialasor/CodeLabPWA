@@ -18,7 +18,6 @@ const Wrapper = styled.div`
   max-width: 320px;
   flex-direction: column;
   align-items: center;
-  color: #091e42;
   text-align: center;
   margin: 20px;
 `;

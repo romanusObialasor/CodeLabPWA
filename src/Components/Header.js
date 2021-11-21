@@ -1,32 +1,72 @@
 import React from "react";
 import styled from "styled-components";
 import GlobalButtton from "./GlobalButtton";
+import { createGlobalStyle } from "styled-components";
 
-const Header = () => {
+const GlobalStyled = createGlobalStyle`
+.Container{
+  background-color: ${({ theme }) =>
+    theme.myTheme === "dark" ? "#212429" : "white"};
+  color: ${({ theme }) => (theme.myTheme === "dark" ? "#edfafe" : "#091e42")};
+  border-bottom: ${({ theme }) =>
+    theme.myTheme === "dark" ? "1px solid white" : ""};
+
+  .Toggle{
+    border: ${({ theme }) =>
+      theme.myTheme === "dark" ? "1px solid white" : ""};
+  }
+
+  .circle{
+    background-color: ${({ theme }) =>
+      theme.myTheme === "dark" ? "white" : ""};
+  }
+  
+}
+`;
+
+const Header = ({ bclr }) => {
   const [state, setState] = React.useState(false);
   const onToggle = () => {
     setState(!state);
   };
+  console.log(bclr);
+
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <span>Develop</span>
-          {!state ? (
-            <Toggle>
-              <Circle state onClick={onToggle} />
-            </Toggle>
-          ) : (
-            <Toggle>
-              <Circle onClick={onToggle} />
-            </Toggle>
-          )}
-        </Left>
-        <Right>
-          <GlobalButtton>Get started</GlobalButtton>
-        </Right>
-      </Wrapper>
-    </Container>
+    <>
+      <GlobalStyled />
+      <Container className="Container">
+        <Wrapper>
+          <Left>
+            <span>Develop</span>
+            {!state ? (
+              <Toggle className="Toggle">
+                <Circle
+                  state
+                  onClick={() => {
+                    onToggle();
+                    bclr();
+                  }}
+                  className="circle"
+                />
+              </Toggle>
+            ) : (
+              <Toggle className="Toggle">
+                <Circle
+                  onClick={() => {
+                    onToggle();
+                    bclr();
+                  }}
+                  className="circle"
+                />
+              </Toggle>
+            )}
+          </Left>
+          <Right>
+            <GlobalButtton>Get started</GlobalButtton>
+          </Right>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

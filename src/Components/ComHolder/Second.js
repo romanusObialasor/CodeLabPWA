@@ -1,25 +1,37 @@
 import React from "react";
 import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyled = createGlobalStyle`
+.Wrapper{
+  background-color: ${({ theme }) =>
+    theme.myTheme === "dark" ? "rgba(252,252,252,0.3)" : ""};
+  
+}
+`;
 
 const Second = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Title>
-            <span>Workspace</span>The way we work has change so we should change
-            the tools we
-          </Title>
-          <Sub>
-            Develop is a modern work management platform that brings together
-            the best tools for high-level planning, project and product
-            management, task organization and productivity growth based on
-            transparency, agility, and motivation.
-          </Sub>
-        </Left>
-        <Right src="/images/first-screen-goodday-new@2x.png" />
-      </Wrapper>
-    </Container>
+    <>
+      <GlobalStyled />
+      <Container>
+        <Wrapper className="Wrapper">
+          <Left>
+            <Title>
+              <span>Workspace</span>The way we work has change so we should
+              change the tools we
+            </Title>
+            <Sub>
+              Develop is a modern work management platform that brings together
+              the best tools for high-level planning, project and product
+              management, task organization and productivity growth based on
+              transparency, agility, and motivation.
+            </Sub>
+          </Left>
+          <Right src="/images/first-screen-goodday-new@2x.png" />
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 
@@ -68,7 +80,7 @@ const Title = styled.div`
   font-size: 23px;
   font-weight: 600;
   line-height: 1.2;
-  color: #091e42;
+
   span {
     font-size: 14px;
     margin-bottom: 5px;

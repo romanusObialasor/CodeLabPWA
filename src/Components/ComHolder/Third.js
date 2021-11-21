@@ -1,36 +1,46 @@
 import React from "react";
 import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyled = createGlobalStyle`
+.Card{
+  background-color: ${({ theme }) =>
+    theme.myTheme === "dark" ? "#212429" : ""};
+  
+
+  .Toggle{
+    border: ${({ theme }) =>
+      theme.myTheme === "dark" ? "1px solid white" : ""};
+  }
+
+  .circle{
+    background-color: ${({ theme }) =>
+      theme.myTheme === "dark" ? "white" : ""};
+  }
+  
+}
+`;
 
 const Third = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Top>
-          <Head>All-in-one Work Management Platform</Head>
-          <Sub>
-            At any time, see your overall workload, know what to work on next,
-            understand current priorities, and be able to easily re-organize
-            work when the business goals change.{" "}
-          </Sub>
-        </Top>
-        <Card>
-          <LeftCard>
-            <Card1>
-              <ImageHolder>
-                <Image1 src="/images/all-in-one-2.png" />
-              </ImageHolder>
-              <Text>
-                <div>All-in-one Work Management Platform</div>
-                <span>
-                  Note that the development build is not optimized. To create a
-                  production build, use npm run buildNote that the development
-                  build is not optimized a production build, use npm run build{" "}
-                </span>
-              </Text>
-            </Card1>
-            <Holder>
-              <Card2>
-                <Image src="/images/project-management.png" />
+    <>
+      <GlobalStyled />
+      <Container>
+        <Wrapper>
+          <Top>
+            <Head>All-in-one Work Management Platform</Head>
+            <Sub>
+              At any time, see your overall workload, know what to work on next,
+              understand current priorities, and be able to easily re-organize
+              work when the business goals change.{" "}
+            </Sub>
+          </Top>
+          <Card>
+            <LeftCard>
+              <Card1 className="Card">
+                <ImageHolder>
+                  <Image1 src="/images/all-in-one-2.png" />
+                </ImageHolder>
                 <Text>
                   <div>All-in-one Work Management Platform</div>
                   <span>
@@ -40,49 +50,64 @@ const Third = () => {
                     npm run build{" "}
                   </span>
                 </Text>
-              </Card2>
-              <LeftHolder>
-                <Card3>
-                  <Image src="/images/use-templates.png" />
+              </Card1>
+              <Holder>
+                <Card2 className="Card">
+                  <Image src="/images/project-management.png" />
                   <Text>
-                    <div>One-click start with Developer Dashboard</div>
+                    <div>All-in-one Work Management Platform</div>
+                    <span>
+                      Note that the development build is not optimized. To
+                      create a production build, use npm run buildNote that the
+                      development build is not optimized a production build, use
+                      npm run build{" "}
+                    </span>
                   </Text>
-                </Card3>
-                <Card6>
-                  <Image src="/images/all-features.png" />
-                  <Text>
-                    <div>All features</div>
-                  </Text>
-                </Card6>
-              </LeftHolder>
-            </Holder>
-          </LeftCard>
-          <Right>
-            <Card4>
-              <Image src="/images/1.png" />
-              <Text4>
-                <div>All-in-one Work Management Platform</div>
-                <span>
-                  Note that the development build is not optimized. To create a
-                  production build, use npm run buildNote that the development
-                  build is not optimized a production build, use npm run build{" "}
-                </span>
-              </Text4>
-            </Card4>
-            <Card5>
-              <Image src="/images/connect-goals-strategy.png" />
-              <Text4>
-                <div>All-in-one Work Management Platform</div>
-                <span>
-                  Note that the development build is not optimized. To create a
-                  production build, use npm run buildNote that the{" "}
-                </span>
-              </Text4>
-            </Card5>
-          </Right>
-        </Card>
-      </Wrapper>
-    </Container>
+                </Card2>
+                <LeftHolder>
+                  <Card3 className="Card">
+                    <Image src="/images/use-templates.png" />
+                    <Text>
+                      <div>One-click start with Developer Dashboard</div>
+                    </Text>
+                  </Card3>
+                  <Card6 className="Card">
+                    <Image src="/images/all-features.png" />
+                    <Text>
+                      <div>All features</div>
+                    </Text>
+                  </Card6>
+                </LeftHolder>
+              </Holder>
+            </LeftCard>
+            <Right>
+              <Card4 className="Card">
+                <Image src="/images/1.png" />
+                <Text4>
+                  <div>All-in-one Work Management Platform</div>
+                  <span>
+                    Note that the development build is not optimized. To create
+                    a production build, use npm run buildNote that the
+                    development build is not optimized a production build, use
+                    npm run build{" "}
+                  </span>
+                </Text4>
+              </Card4>
+              <Card5 className="Card">
+                <Image src="/images/connect-goals-strategy.png" />
+                <Text4>
+                  <div>All-in-one Work Management Platform</div>
+                  <span>
+                    Note that the development build is not optimized. To create
+                    a production build, use npm run buildNote that the{" "}
+                  </span>
+                </Text4>
+              </Card5>
+            </Right>
+          </Card>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 
@@ -114,7 +139,7 @@ const Wrapper = styled.div`
 const Top = styled.div`
   max-width: 800px;
   text-align: center;
-  color: #091e42;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,7 +169,6 @@ const Sub = styled.div`
 `;
 
 const Card = styled.div`
-  color: #091e42;
   display: flex;
   width: 100%;
   justify-content: center;

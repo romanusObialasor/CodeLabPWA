@@ -9,10 +9,10 @@ import Sixth from "./ComHolder/Sixth";
 import Seventh from "./ComHolder/Seventh";
 import Header from "./Header";
 
-const HomeScreen = () => {
+const HomeScreen = ({ bclr }) => {
   return (
     <Container>
-      <Header />
+      <Header bclr={bclr} />
       <First />
       <Second />
       <Third />

@@ -78,7 +78,6 @@ const Title = styled.div`
 const Content = styled.div`
   margin-top: 10px;
   font-size: 14px;
-  color: #091e42;
   line-height: 1.7;
 `;
 

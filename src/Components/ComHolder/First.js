@@ -57,7 +57,6 @@ const Title = styled.div`
   font-size: 40px;
   font-weight: 400;
   line-height: 1;
-  color: #091e42;
 
   b {
     font-size: 60px;
